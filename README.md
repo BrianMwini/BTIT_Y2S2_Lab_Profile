@@ -1,1 +1,1 @@
-My name is Brian Mwiwni Im an year two student at Technical university of Kenya pursuing Bachelor of Information Technology.This is my first repository created at github and Im eager to continue building more projects in the future
+My name is Brian Mwini Im an year two student at Technical university of Kenya pursuing Bachelor of Information Technology.This is my first repository created at github and Im eager to continue building more projects in the future
