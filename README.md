@@ -1,87 +1,93 @@
-# MPVS — M-Pesa Payment Verification & Transaction Management System
+<div align="center">
 
-A web-based system (PHP 8 + MySQL + PDO + Bootstrap 5) that records and manually
-verifies M-Pesa payments for small businesses, per the official SRS document
-(`Software Specificaton Requirement document.docx`).
+# M-Pesa Payment Verification & Transaction Management System
 
-This is a **manual verification system**: transactions are recorded in the local
-database by an administrator and then marked as Verified or Failed. **No external
-M-Pesa (Daraja) API is used and no API credentials are required.**
+A PHP web application for recording and manually verifying M-Pesa payments — a complete, secure, university-level system with an admin dashboard, receipts, reports and an approval workflow.
 
-**Features**
-- Secure registration & login (bcrypt passwords, sessions, CSRF, role-based access)
-- **Staff approval workflow** — new registrations start as *Pending* and must be
-  approved by an administrator before they can log in
-- **Add Transaction** — record a payment (auto-generated 10-character code if blank),
-  stored as *Pending*
-- **Verify Transaction** — search the local database, review details, then
-  Verify Payment or Mark as Failed
-- Centralized transaction records with search, filters (code, phone, sender,
-  status, verifier, dates) & pagination
-- Digital printable receipts (auto-generated on verification)
-- Analytical reports: stat cards, Chart.js charts, **Verified By / Verification Date**
-  columns, filters by date/status/verifier, CSV export, report history
-- Admin user management — approve, reject, suspend and activate users
-- Dashboard notification cards: pending verifications, pending approvals,
-  verified today, failed today
-- Audit log & activity feed, notifications, responsive professional dashboard
-- Sample data + one-click installer
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=flat-square&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+![MVC](https://img.shields.io/badge/Architecture-MVC-4fae42?style=flat-square)
 
-## Requirements
-- XAMPP with **PHP 8.1+** and **MySQL 5.7+** (Apache)
-- Browser
+</div>
 
-## Installation (XAMPP)
+---
 
-1. Copy this project folder into `C:\xampp\htdocs\` (e.g. `C:\xampp\htdocs\mpesa-projo`).
-2. Start **Apache** and **MySQL** from the XAMPP control panel.
-3. Open <http://localhost/mpesa-projo/setup.php> and click **Install Database**.
-4. Open <http://localhost/mpesa-projo/public/> and log in.
+## About
 
-### Demo accounts
+This system helps small businesses record M-Pesa payments and manually verify them against their local records. No external API is required — transactions are entered by an administrator, reviewed, and marked as **Verified** or **Failed**. Verified payments automatically generate printable receipts.
 
-| Role | Username | Password | Status |
-|------|----------|----------|--------|
-| Administrator | `admin`  | `Admin@123` | Approved |
-| Business Staff | `staff1` | `Staff@123` | Approved |
-| Business Staff | `staff2` | `Staff@123` | Approved |
-| Business Staff | `newstaff` | `Staff@123` | **Pending approval** (demo) |
+## Features
+
+- **Authentication** — registration, login, password hashing, CSRF protection and role-based access control
+- **Approval workflow** — new staff accounts require administrator approval before they can log in
+- **Add Transaction** — record a payment with an auto-generated or manual code
+- **Verify Transaction** — search, review and verify or reject payments
+- **Receipts** — printable digital receipts generated on verification
+- **Reports** — statistics, charts, filters and CSV export
+- **User management** — approve, reject, suspend and activate users
+- **Dashboard** — live statistics, notification cards and activity feed
+
+## Tech Stack
+
+PHP 8 · MySQL · PDO (prepared statements) · Bootstrap 5 · HTML5/CSS3 · JavaScript · Chart.js
+
+## Getting Started
+
+**Requirements:** XAMPP (Apache, PHP 8.1+, MySQL 5.7+)
+
+```bash
+# 1. Copy the project into your web root
+C:\xampp\htdocs\mpesa-projo
+
+# 2. Start Apache and MySQL from the XAMPP Control Panel
+
+# 3. Open the one-time installer and create the database
+http://localhost/mpesa-projo/setup.php
+
+# 4. Open the application
+http://localhost/mpesa-projo/public/
+```
 
 > ⚠️ Delete `setup.php` after installation.
 
-### Alternative: manual database import
-Import `database/mpesa_db.sql` into phpMyAdmin, then visit `public/`.
+Alternatively, import `database/mpesa_db.sql` into phpMyAdmin directly.
 
-## How Verification Works
-
-1. **Administrator records a transaction** (Add Transaction) — the payment is
-   saved with its code, sender and amount as *Pending*.
-2. The system **redirects to the Verify Transaction page**, which searches the
-   new record automatically.
-3. The administrator **reviews the transaction details** (code, sender, phone,
-   amount, date, status).
-4. The administrator clicks **Verify Payment** or **Mark as Failed**.
-5. The database is updated — a digital receipt is generated for verified payments,
-   and reports & dashboard statistics refresh automatically.
-
-## Project structure
+## Project Structure
 
 ```
-├── index.php            # redirect to /public
-├── setup.php            # one-time installer (delete after use)
-├── config/config.php    # DB + app settings
-├── database/mpesa_db.sql# full schema + sample data
-├── docs/SRS_ANALYSIS.md # Phase 1 & 2 analysis of the SRS
-├── app/                 # bootstrap, core (MVC), models, controllers
-├── public/              # webroot (front controller, assets, vendor libs)
-└── views/               # layouts, partials, page templates
+mpesa-projo/
+├── setup.php              # one-time database installer
+├── config/                # application configuration
+├── database/
+│   └── mpesa_db.sql       # schema + sample data
+├── app/
+│   ├── core/              # MVC framework core
+│   ├── controllers/       # request handling
+│   ├── models/            # database access
+│   └── services/          # business services
+├── public/                # webroot (front controller + assets)
+└── views/                 # templates
 ```
 
-The **webroot is `public/`**. Point an Apache virtual host at it, or use the
-built-in dev server: `php -S localhost:8000 -t public public/router.php`
+## Documentation
 
-## Security
-Prepared statements (PDO) · bcrypt password hashing · session auth with id
-regeneration · role-based authorization · CSRF tokens on every form · XSS-safe
-output escaping · duplicate-email & duplicate-code prevention · audit logging of
-failed logins, blocked access and critical actions.
+| Document | Description |
+|---|---|
+| `docs/SRS_ANALYSIS.md` | Requirements analysis and system design |
+| `docs/MODULE5_System_Implementation.md` | Implementation documentation |
+
+## Workflow
+
+1. Administrator logs in and records a transaction (*Pending*).
+2. The system opens the Verify Transaction page with the new record.
+3. The administrator reviews the details and clicks **Verify Payment** or **Mark as Failed**.
+4. The database updates — receipts, reports and dashboard refresh automatically.
+
+---
+
+<div align="center">
+
+Built with PHP, MySQL and Bootstrap — university project.
+
+</div>
