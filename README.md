@@ -70,12 +70,6 @@ mpesa-projo/
 └── views/                 # templates
 ```
 
-## Documentation
-
-| Document | Description |
-|---|---|
-| `docs/SRS_ANALYSIS.md` | Requirements analysis and system design |
-| `docs/MODULE5_System_Implementation.md` | Implementation documentation |
 
 ## Workflow
 
