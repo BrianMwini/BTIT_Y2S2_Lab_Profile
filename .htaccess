@@ -1,0 +1,11 @@
+# =====================================================================
+# MPVS — Root .htaccess (only active if the project folder is used as
+# the XAMPP doc root). Protects app/config/database folders from direct
+# web access when the /public folder is NOT the doc root.
+# =====================================================================
+Options -Indexes
+
+# Redirect everything to /public (the real webroot).
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public
+RewriteRule ^(.*)$ public/$1 [L]

@@ -1,0 +1,25 @@
+# =====================================================================
+# MPVS — Apache configuration (XAMPP)
+# Pretty URLs: /verify  ->  index.php?r=verify
+# =====================================================================
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Send all non-existent requests to the front controller.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?r=$1 [QSA,L]
+</IfModule>
+
+# PHP 8+ minimum version guard.
+<IfModule mod_php.c>
+    php_flag display_errors on
+</IfModule>
+
+# Block direct access to sensitive files if someone browses the tree.
+<FilesMatch "\.(sql|md|log|ini)$">
+    Require all denied
+</FilesMatch>
