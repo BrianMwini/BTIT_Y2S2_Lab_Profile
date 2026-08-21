@@ -15,7 +15,7 @@ A PHP web application for recording and manually verifying M-Pesa payments — a
 
 ## About
 
-This system helps small businesses record M-Pesa payments and manually verify them against their local records. No external API is required — transactions are entered by an administrator, reviewed, and marked as **Verified** or **Failed**. Verified payments automatically generate printable receipts.
+This system helps small businesses record M-Pesa payments and manually verify them against their local records. Transactions are entered by an administrator, reviewed, and marked as **Verified** or **Failed**. Verified payments automatically generate printable receipts.
 
 ## Features
 
