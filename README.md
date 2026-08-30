@@ -38,15 +38,14 @@ PHP 8 · MySQL · PDO (prepared statements) · Bootstrap 5 · HTML5/CSS3 · Java
 
 ```bash
 # 1. Copy the project into your web root
-C:\xampp\htdocs\mpesa-projo
 
 # 2. Start Apache and MySQL from the XAMPP Control Panel
 
 # 3. Open the one-time installer and create the database
-http://localhost/mpesa-projo/setup.php
+http://localhost/mpesa-verification/setup.php
 
 # 4. Open the application
-http://localhost/mpesa-projo/public/
+http://localhost/mpesa-verification/public/
 ```
 
 > ⚠️ Delete `setup.php` after installation.
