@@ -1,0 +1,39 @@
+# =====================================================================
+# MPVS — .gitignore
+# =====================================================================
+
+# IDE & editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# PHP
+*.phar
+
+# Logs
+*.log
+
+# Environment / secrets
+.env
+.env.*
+
+# XAMPP artifacts
+htdocs/
+
+# Node (if ever added)
+node_modules/
+package-lock.json
+
+# Compiled files
+*.min.css
+*.min.js
+
+# Keep vendor assets (Bootstrap, Font Awesome, Chart.js) committed
+# so the project runs without npm/composer.

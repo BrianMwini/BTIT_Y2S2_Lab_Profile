@@ -56,9 +56,19 @@ define('DEFAULT_CURRENCY', 'KES');
  * -------------------------------------------------------------------
  * This is a MANUAL verification system: transactions are recorded in
  * the local database by an administrator and then verified on the
- * Verify Transaction page. No external M-Pesa (Daraja) API is used and
- * no API credentials are required.
+ * Verify Transaction page.
+ *
+ * When MPESA_SIMULATION_MODE is true (the default), verification
+ * produces deterministic simulated results. Set to false and provide
+ * real Safaricom credentials below to enable live Daraja API calls.
  * ------------------------------------------------------------------- */
+define('MPESA_SIMULATION_MODE', true);
+define('MPESA_API_BASE',       'https://sandbox.safaricom.co.ke');
+define('MPESA_CONSUMER_KEY',    '');  // Safaricom consumer key
+define('MPESA_CONSUMER_SECRET', '');  // Safaricom consumer secret
+define('MPESA_SHORTCODE',       '');  // Business shortcode
+define('MPESA_PASSKEY',         '');  // Lipa Na M-Pesa passkey
+define('MPESA_REQUEST_TIMEOUT', 15);  // cURL timeout in seconds
 
 /* ---------------------------------------------------------------------
  * Security & session settings
