@@ -2,7 +2,7 @@
 
 # M-Pesa Payment Verification & Transaction Management System
 
-A PHP web application for recording and manually verifying M-Pesa payments — a complete, secure, university-level system with an admin dashboard, receipts, reports and an approval workflow.
+A PHP web application for recording and manually verifying M-Pesa payments — a complete, secure system with an admin dashboard, receipts, reports and an approval workflow.
 
 ![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=flat-square&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white)
