@@ -141,7 +141,7 @@ define('MPESA_PASSKEY',         'your-lipa-na-mpesa-passkey');
 
 ## License
 
-This is a university project for educational purposes.
+This is a university project built by Brian Mwini
 
 ---
 
