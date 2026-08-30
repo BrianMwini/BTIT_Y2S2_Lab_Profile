@@ -69,15 +69,6 @@ php -S 127.0.0.1:8000 -t public public/router.php
 # Then open http://127.0.0.1:8000/
 ```
 
-## Demo Credentials
-
-| Role | Username | Password | Status |
-|---|---|---|---|
-| Administrator | `admin` | `Admin@123` | Pre-approved |
-| Business Staff | `staff1` | `Staff@123` | Pre-approved |
-| Business Staff | `staff2` | `Staff@123` | Pre-approved |
-| New Staff | `newstaff` | `Staff@123` | Pending approval |
-| Rejected App | `karennjoki` | `Staff@123` | Rejected |
 
 ## Project Structure
 
